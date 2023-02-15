@@ -1,9 +1,18 @@
 # simple-recommender-system
 一个简单的推荐系统
+
 # 基础架构图
 ![Image text](resources/picture/Infrastructure_diagram.png)
+
 # 原始数据源
 http://www2.informatik.uni-freiburg.de/~cziegler/BX/
+使用了其中三个数据源文件：BX-Users、BX-Books、BX-Book-Ratings
+
+
+# 原始数据源的处理
+1. 因为BX-Book-Ratings数据源中缺少了用户的场景信息，因此，将ratings中的时间戳信息合并到了该数据源中，并生成了book_ratings文件，
+作为用户评分的原始数据源。
+
 # 环境准备
 ## Tensorflow
 
