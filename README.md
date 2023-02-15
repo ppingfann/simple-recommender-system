@@ -10,8 +10,14 @@ http://www2.informatik.uni-freiburg.de/~cziegler/BX/
 
 
 # 原始数据源的处理
-1. 因为BX-Book-Ratings数据源中缺少了用户的场景信息，因此，将ratings中的时间戳信息合并到了该数据源中，并生成了book_ratings文件，
+1. 将BX-Users源数据中的字段修改名称后写入到users文件中。
+2. 将BX-Books数据源中的字段修改名称并增加了一个自增ID后，写入到了books文件中。
+3. 因为BX-Book-Ratings数据源中缺少了用户的场景信息，因此，将ratings中的时间戳信息合并到了该数据源中，并生成了book_ratings文件，
 作为用户评分的原始数据源。
+
+# 生成训练以及测试数据集
+训练数据集：
+测试数据集：
 
 # 环境准备
 ## Tensorflow
@@ -35,4 +41,5 @@ src/embedding/embedding.py 中做了item2vec的embedding过程示例。
 | Item特征  | 作者 | Book-Author | 类别型 | onehot+embedding |
 | Item特征  | 发布年份 | Year-Of-Publication | 数值型 | 直接输入DNN |
 | Item特征  | 出版方 | Publisher | 类别型 | onehot+embedding |
+| 场景特征  | 评价时间 | timestamp | 数值型 | 直接输入DNN |
 ### 模型设计
