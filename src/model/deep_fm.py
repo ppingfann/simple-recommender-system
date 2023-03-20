@@ -27,7 +27,12 @@ test_dataset = get_dataset(TEST_SAMPLES_FILE_PATH)
 # all categorical features
 categorical_columns = []
 user_col = tf.feature_column.categorical_column_with_identity(key='user_id', num_buckets=300000)
+print("user_col\n")
+print("user_col\n")
+print(user_col)
 user_emb_col = tf.feature_column.embedding_column(user_col, 10)
+print("user_emb_col")
+print(user_emb_col)
 categorical_columns.append(user_emb_col)
 
 # book id embedding feature
@@ -39,7 +44,8 @@ categorical_columns.append(book_emb_col)
 age_col = tf.feature_column.categorical_column_with_identity(key='age', num_buckets=1000)
 age_emb_col = tf.feature_column.embedding_column(age_col, 10)
 categorical_columns.append(age_emb_col)
-
+print("categorical_columns")
+print(categorical_columns)
 # all numerical features
 # 被选择为label的字段，不能作为特征输入
 numerical_columns = [tf.feature_column.numeric_column('year_of_publication'),
